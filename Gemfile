@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 
@@ -56,6 +58,11 @@ group :development, :test do
 end
 
 gem 'figaro'
+
+group :production  do
+  gem 'rails_12factor'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

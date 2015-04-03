@@ -8,7 +8,14 @@ test:
   database: echoes_test
   host: localhost
 
-production:
+# production:
+#   adapter: postgresql
+#   database: echoes_production
+#   host: localhost
+
+default: &default
   adapter: postgresql
-  database: echoes_production
-  host: localhost
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
