@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  database: echoes_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: echoes_test
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: echoes_production
+  host: localhost

@@ -1,0 +1,49 @@
+<hr>
+<div id="map-canvas"></div>
+<hr>
+
+<article class="sound">
+  <h1 class="sound-name"><%= @sound.name %></h1>
+  <p> 
+    <%= @sound.description %>
+  </p>
+
+  <p>
+   <% if @sound.echo_url != nil %>
+   <%= audio_tag(@sound.echo, controls: true) %> 
+   <% else %>
+   <%= audio_tag(@sound.sound_url, controls: true) %> 
+   <% end %>
+ </p>
+
+
+<p >
+  <%= link_to "Edit", edit_sound_path %>
+  <%= link_to 'Delete', sound_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+</p>
+
+ <% if @nearby_sounds.present? %>
+ <h2>Nearby Sounds</h2>
+ <ul>
+  <% @nearby_sounds.each do |ns| %>
+  <p>
+    <li><%= link_to "#{ns.name}", ns %>: <%= "#{(ns.distance * 100).round.to_f / 100} kms" %></li>
+    <% end %>
+  </p>
+</ul>
+<% end %>
+
+
+</article>
+
+
+
+<%= javascript_tag do %>
+window.latitude = <%= @sound.latitude.to_f %>;
+window.longitude = <%= @sound.longitude.to_f %>;
+window.showMarker = true;
+
+window.coords = <%= raw @nearby_sounds.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
+
+<% end %>

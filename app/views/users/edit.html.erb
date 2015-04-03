@@ -1,0 +1,64 @@
+<h2> Edit User <%= @user.id %> </h2>
+
+<%= form_for :user, url: user_path, method: :patch do |f| %>
+
+
+<% if @user.errors.any? %>
+
+<div class="error_messages">
+  <h2>Form is invalid</h2>
+  <ul>
+    <% for message in @user.errors.full_messages %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+
+<% end %>
+
+<p>
+  <%= f.label :name  %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <%= f.label :city  %><br>
+  <%= f.text_field :city %>
+</p>
+
+<p>
+  <%= f.label :country %><br>
+  <%= f.text_field :country %>
+</p>
+
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</p>
+
+
+
+
+<div class="form_field">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+ <div class="form_field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
+
+<%= link_to 'Back to Users', users_path %>

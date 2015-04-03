@@ -1,0 +1,5 @@
+$('#sound-list').html("<%= j(render @sounds) %>");
+ 
+var coords = window.coords = <%= raw @sounds.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>;
+clearMarkers(coords);
+addMarkers(coords);

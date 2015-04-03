@@ -1,0 +1,42 @@
+<h2> Edit: "<%= @sound.name %>"" </h2>
+
+<%= form_for :sound, url: sound_path, method: :patch do |f| %>
+
+
+<% if @sound.errors.any? %>
+
+<div class="error_messages">
+  <h2>Form is invalid</h2>
+  <ul>
+    <% for message in @sound.errors.full_messages %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+
+<% end %>
+
+<p>
+  <%= f.label :name  %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :sound_url %><br>
+  <%= f.text_field :echo%>
+</p>
+
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</p>
+
+
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
+
+<%= link_to 'Back to Sound', sound_path(@sound) %>
