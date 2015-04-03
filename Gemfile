@@ -59,7 +59,7 @@ end
 
 gem 'figaro'
 
-group :production  do
+group :production do
   gem 'rails_12factor'
   gem 'puma'
 end
