@@ -61,7 +61,9 @@ gem 'figaro'
 
 group :production  do
   gem 'rails_12factor'
+  gem 'puma'
 end
+
 
 
 # Use ActiveModel has_secure_password
