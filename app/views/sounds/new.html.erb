@@ -231,7 +231,7 @@ if (navigator.getUserMedia){
     Lower values for buffer size will result in a lower (better) latency. 
     Higher values will be necessary to avoid audio breakup and glitches */
     var bufferSize = 2048;
-    recorder = context.createJavaScriptNode(bufferSize, 2, 2);
+    recorder = context.createScriptProcessor(bufferSize, 2, 2);
 
     recorder.onaudioprocess = function(e){
       if (!recording) return;
